@@ -1,10 +1,6 @@
-<?php
-require_once ("database.inc.php");
- ?>
+<?php require_once ("database.inc.php"); ?>
 <html>
-
 	<head>
-
 		<script>
 		function showHint(str) {
 		    if (str.length == 0) {
@@ -24,7 +20,6 @@ require_once ("database.inc.php");
 		</script>
 	</head>
 	<body>
-
 		<p><b>Type hier een naam, of slechts enkele letters van een naam:</b></p>
 			<form>
 				Voornaam: <input type="text" onkeyup="showHint(this.value)">
@@ -32,15 +27,12 @@ require_once ("database.inc.php");
 		<p>Bedoel je: <span id="txtHint"></span></p>
 	</body>
 </html>
-
 <?php
 $con = database::connect();
+$sth = $con->prepare("SELECT * FROM postcode");
+$sth->execute();
 
-			$sql = "SELECT * FROM postcode";
-			$sth = $con->prepare($sql);
-			$sth->execute();
-
-			foreach($sth as $row) {
-				echo $row['PostCode'];
-			}
-    ?>
+foreach($sth as $row) {
+	echo $row['PostCode'];
+}
+?>
