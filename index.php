@@ -1,10 +1,12 @@
 <?php require_once ("database.inc.php"); ?>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="icon" type="image/png" href="favicon.png">
 		<script>
 		function showHint(str) {
 		    if (str.length == 0) {
-		        document.getElementById("txtHint").innerHTML = "je moet wel iets typen";
+		        document.getElementById("txtHint").innerHTML = "Vul iets in aub...";
 		        return;
 		    } else {
 		        var xmlhttp = new XMLHttpRequest();
